@@ -1,0 +1,260 @@
+/* ==========================================================================
+   Tracking US Foreign Aid — stylesheet
+   Minimalist academic design. Generous whitespace, narrow column for prose,
+   full-width for visualizations.
+   ========================================================================== */
+
+:root {
+    --color-text: #1a1a1a;
+    --color-text-muted: #555;
+    --color-bg: #ffffff;
+    --color-accent: #8b1e1e;       /* deep red — used sparingly for emphasis */
+    --color-rule: #d0d0d0;
+    --color-placeholder-bg: #f5f5f3;
+    --color-placeholder-border: #c8c8c0;
+
+    --font-serif: "Iowan Old Style", "Georgia", "Times New Roman", serif;
+    --font-sans:  -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+
+    --col-prose: 680px;
+    --col-wide:  1080px;
+}
+
+/* ---------- reset ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--color-text);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+/* ---------- layout containers ---------- */
+.prose {
+    max-width: var(--col-prose);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.wide {
+    max-width: var(--col-wide);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ---------- typography ---------- */
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: 2.6rem;
+    margin: 0 0 0.4rem 0;
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin: 3rem 0 1rem 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-rule);
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.6rem 0;
+    color: var(--color-text-muted);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+p {
+    margin: 0 0 1.2rem 0;
+}
+
+p.lede {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.subtitle {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--color-text-muted);
+    margin: 0 0 2.5rem 0;
+}
+
+.byline {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+}
+a:hover { opacity: 0.7; }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+/* ---------- header / hero ---------- */
+header.hero {
+    padding: 6rem 0 3rem 0;
+    border-bottom: 1px solid var(--color-rule);
+    margin-bottom: 3rem;
+}
+
+/* ---------- pull quote / emphasis block ---------- */
+.pullquote {
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--color-text);
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.5rem;
+    margin: 2.5rem 0;
+}
+
+/* ---------- visualizations ---------- */
+.viz {
+    margin: 2.5rem auto;
+}
+
+.viz-placeholder {
+    background: var(--color-placeholder-bg);
+    border: 2px dashed var(--color-placeholder-border);
+    color: var(--color-text-muted);
+    padding: 4rem 2rem;
+    text-align: center;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    border-radius: 4px;
+}
+
+.viz-placeholder .label {
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    margin-bottom: 0.6rem;
+    display: block;
+}
+
+.viz-caption {
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 0.8rem;
+    line-height: 1.5;
+}
+
+/* iframe wrapper for embedded HTML maps */
+.map-embed {
+    width: 100%;
+    height: 520px;
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+}
+
+/* side-by-side comparison */
+.map-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.map-pair .map-block h4 {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.6rem 0;
+    color: var(--color-text-muted);
+}
+
+@media (max-width: 800px) {
+    .map-pair {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- key-finding callout box ---------- */
+.callout {
+    background: var(--color-placeholder-bg);
+    border-left: 3px solid var(--color-text);
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-size: 0.98rem;
+}
+
+.callout .callout-label {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+}
+
+/* ---------- bibliography ---------- */
+.bibliography {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.bibliography ol {
+    padding-left: 1.5rem;
+}
+
+.bibliography li {
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+}
+
+/* ---------- footer ---------- */
+footer.site-foot {
+    border-top: 1px solid var(--color-rule);
+    margin-top: 5rem;
+    padding: 2.5rem 0 4rem 0;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* ---------- small responsive tweaks ---------- */
+@media (max-width: 600px) {
+    body { font-size: 17px; }
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.4rem; }
+    header.hero { padding: 3rem 0 2rem 0; }
+}
