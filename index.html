@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tracking US Foreign Aid &mdash; A Data Visualization Project</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ==========================================================================
+     HERO
+     ========================================================================== -->
+<header class="hero">
+    <div class="prose">
+        <p class="byline">Data 202 &middot; Final Project &middot; May 2026</p>
+        <h1>Tracking US Foreign Aid</h1>
+        <p class="subtitle">How September 11 reshaped seventy-five years of American spending abroad &mdash; and the three countries that didn't change.</p>
+    </div>
+</header>
+
+
+<!-- ==========================================================================
+     SECTION 1 — INTRODUCTION
+     ========================================================================== -->
+<section class="prose" id="intro">
+    <p class="lede">
+        [PLACEHOLDER &mdash; HOOK PARAGRAPH]
+        Open with the Afghanistan + Ukraine figures: before 9/11, the US had obligated
+        about $8 billion combined to those two countries. In the two decades since,
+        more than $288 billion. Use this to introduce the puzzle of post-9/11 aid shifts.
+    </p>
+
+    <p>
+        [PLACEHOLDER &mdash; FRAMING PARAGRAPH]
+        Introduce the driving question in three parts: did 9/11 change <em>who</em> America
+        helps, <em>how much</em>, or <em>what kind of help</em> it sends &mdash; or all three?
+        Briefly mention the dataset (ForeignAssistance.gov, 1946&ndash;present) and signal
+        the structure of the piece without listing it out.
+    </p>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 2 — THE DATA
+     ========================================================================== -->
+<section class="prose" id="data">
+    <h2>The data behind the story</h2>
+
+    <p>
+        [PLACEHOLDER &mdash; INTRODUCE SOURCE]
+        Where the data comes from (ForeignAssistance.gov), what it tracks
+        (every dollar sent abroad since 1946), and a few concrete examples
+        of what counts as aid: vaccinations, food shipments, military equipment.
+    </p>
+
+    <p>
+        [PLACEHOLDER &mdash; THE HOUSEHOLD-BUDGET ANALOGY]
+        Walk through the four pipeline stages: Request, Appropriated, Obligated,
+        Disbursed. Use the household-budget analogy: Request is what you ask for,
+        Appropriated is what gets approved, Obligated is what you've signed contracts
+        to spend, Disbursed is what's actually left your bank account.
+    </p>
+
+    <p>
+        [PLACEHOLDER &mdash; OUR METHODOLOGY CHOICE]
+        Why we focus on Obligations: it captures policy intent better than the
+        wish-list of a budget request or the lagging reality of disbursements.
+        It's also the only stage tracked consistently back to 1946.
+        All figures inflation-adjusted to constant dollars.
+    </p>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 3 — WHO: A TALE OF TWO ERAS  (Dashboard 2)
+     ========================================================================== -->
+<section id="who">
+    <div class="prose">
+        <h2>Who: a tale of two eras</h2>
+        <p>
+            [PLACEHOLDER &mdash; SET UP THE COMPARISON]
+            Introduce the side-by-side. Before clicking play or scrolling further,
+            here's the headline: a $1.94 trillion pre-2001 picture and a $1.23 trillion
+            post-2001 picture, in inflation-adjusted dollars. Walk the reader's eye
+            into the comparison.
+        </p>
+    </div>
+
+    <div class="wide viz">
+        <div class="viz-placeholder">
+            <span class="label">Tableau embed &mdash; Dashboard 2</span>
+            Total US Foreign Aid by Region: 1946&ndash;2000 vs. 2001&ndash;2024<br>
+            <a href="https://public.tableau.com/app/profile/nico.kaplun.muller/viz/USForeignAidSpendingPatterns1946-2024/Dashboard2">View on Tableau Public</a><br>
+            <small>Replace this block with the Tableau embed &lt;script&gt; once published.</small>
+        </div>
+    </div>
+
+    <div class="prose">
+        <p>
+            [PLACEHOLDER &mdash; THE DRAMATIC SHIFT]
+            Europe drops from #1 to #4. Sub-Saharan Africa rises from last place to
+            #2. East Asia collapses from #2 to dead last. The Cold War-era priorities
+            evaporate; humanitarian and conflict-zone regions take their place.
+        </p>
+
+        <div class="callout">
+            <div class="callout-label">A second pattern</div>
+            <p style="margin-bottom:0;">
+                [PLACEHOLDER &mdash; THE CONTINUITY FINDING]
+                Israel, Egypt, and Pakistan appear in the top 15 recipients in
+                <em>both</em> eras. Across all the upheaval, three relationships
+                persisted. Israel and Egypt's funding traces to the 1978 Camp David
+                Accords; Pakistan's persistence runs from Cold War partner to
+                counterterrorism ally.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 4 — THE PIVOT: 9/11
+     ========================================================================== -->
+<section class="prose" id="pivot">
+    <h2>Why 2001 was the turning point</h2>
+
+    <p>
+        [PLACEHOLDER &mdash; HISTORICAL CONTEXT]
+        Short context about what happened in US foreign policy after September 11.
+        The War on Terror reframed aid as part of military strategy. Stabilization,
+        counterterrorism, post-conflict reconstruction become budget priorities.
+        Cold War-era alliances no longer set the agenda. Keep this tight &mdash; two
+        paragraphs, no more.
+    </p>
+
+    <p>
+        [PLACEHOLDER &mdash; TRANSITION]
+        Bridge into the geographic detail that follows: the bubble chart showed
+        regional totals, but the maps below show country-by-country where those
+        dollars actually landed.
+    </p>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 5 — GEOGRAPHIC DETAIL (the two choropleth maps)
+     ========================================================================== -->
+<section id="maps">
+    <div class="prose">
+        <h2>The geography, country by country</h2>
+        <p>
+            [PLACEHOLDER &mdash; INTRO THE MAPS]
+            Set up what the reader is about to see. Both maps default to Obligations.
+            Pre-2001 covers 1946&ndash;2000; post-2001 covers 2001 through the present.
+            Hover any country for that country's cumulative total.
+        </p>
+    </div>
+
+    <div class="wide">
+        <div class="map-pair">
+            <div class="map-block">
+                <h4>Before 2001 &middot; 1946&ndash;2000</h4>
+                <div class="map-embed">
+                    <iframe src="maps/aid_pre2001.html" title="Pre-2001 US foreign aid map"></iframe>
+                </div>
+            </div>
+            <div class="map-block">
+                <h4>After 2001 &middot; 2001&ndash;present</h4>
+                <div class="map-embed">
+                    <iframe src="maps/aid_post2001.html" title="Post-2001 US foreign aid map"></iframe>
+                </div>
+            </div>
+        </div>
+        <p class="viz-caption">
+            Both maps shaded by total Obligations in inflation-adjusted USD.
+            Use the layer toggle in the upper-right of the post-2001 map to switch
+            between Budget Request, Appropriated, Obligations, and Disbursements.
+        </p>
+    </div>
+
+    <div class="prose">
+        <p>
+            [PLACEHOLDER &mdash; READ THE MAPS]
+            Walk the reader through what jumps out. Pre-2001: Europe is dark, the
+            former Soviet bloc is dark, South Korea and Vietnam are dark. Post-2001:
+            Afghanistan and Iraq are dark, Ukraine darkens, sub-Saharan Africa
+            darkens (PEPFAR), Israel and Egypt stay dark.
+        </p>
+    </div>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 6 — HOW THE SHIFT UNFOLDED (Dashboard 3, interactive)
+     ========================================================================== -->
+<section id="how">
+    <div class="prose">
+        <h2>How the shift unfolded, year by year</h2>
+        <p>
+            [PLACEHOLDER &mdash; INVITE INTERACTION]
+            The pre/post comparison gave the headline; the maps gave the geography.
+            This interactive view shows the year-by-year choreography. Press play
+            to see how spending shifts from one region to another across the post-9/11
+            era &mdash; the Iraq surge, the Afghanistan ramp-up, the Ukraine spike.
+        </p>
+    </div>
+
+    <div class="wide viz">
+        <div class="viz-placeholder">
+            <span class="label">Tableau embed &mdash; Dashboard 3 (interactive)</span>
+            US Foreign Aid Obligations by Region &mdash; Year-by-year playback<br>
+            <small>Replace this block with the Tableau embed &lt;script&gt; once Nico publishes Dashboard 3.</small>
+        </div>
+    </div>
+
+    <div class="prose">
+        <p>
+            [PLACEHOLDER &mdash; WHAT TO NOTICE]
+            Point out the specific moments the reader should watch for: 2003&ndash;2004
+            (Iraq), 2010&ndash;2012 (Afghanistan surge), 2014 (drawdown), 2022 (Ukraine).
+            Tie back to the question: this is <em>how much</em> changed &mdash; not just
+            who got it, but how dramatically the totals swung year over year.
+        </p>
+    </div>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 7 — WHAT KIND OF HELP (sector chart)
+     ========================================================================== -->
+<section id="what-kind">
+    <div class="prose">
+        <h2>What kind of help: from food to firepower</h2>
+        <p>
+            [PLACEHOLDER &mdash; SET UP THE SECTOR QUESTION]
+            We've answered <em>who</em> and <em>how much</em>. The third question is
+            what kind of aid America is sending now versus before. The next chart
+            shows the top five sectors of post-2001 spending.
+        </p>
+    </div>
+
+    <div class="wide viz">
+        <div class="viz-placeholder">
+            <span class="label">Tableau embed &mdash; Sector Year</span>
+            Top 5 Sectors of US Foreign Aid Spending: 2001&ndash;2024<br>
+            <small>Replace this block with the Tableau embed &lt;script&gt; once published.</small>
+        </div>
+    </div>
+
+    <div class="prose">
+        <p>
+            [PLACEHOLDER &mdash; DOMINANT SECTOR]
+            Stabilization Operations and Security Sector Reform &mdash; military training,
+            counterterrorism, post-conflict security &mdash; is the single largest sector,
+            drawing roughly a quarter of all sector-tagged dollars and nearly twice
+            the next-largest category. The Iraq surge peaks ~2010. Subsequent drawdown
+            visible in the decline through 2014.
+        </p>
+
+        <p>
+            [PLACEHOLDER &mdash; THE HIV/AIDS LINE]
+            The third-largest sector is HIV/AIDS &mdash; almost entirely PEPFAR, launched
+            in 2003 under President George W. Bush. Visible on the chart as the line
+            climbing sharply from near-zero in 2003 to a sustained high level.
+            One of the largest single global health initiatives in US history,
+            and a counterweight to the military-focused reading of post-9/11 aid.
+        </p>
+    </div>
+</section>
+
+
+<!-- ==========================================================================
+     SECTION 8 — CONCLUSION
+     ========================================================================== -->
+<section class="prose" id="conclusion">
+    <h2>What the data shows</h2>
+
+    <p>
+        [PLACEHOLDER &mdash; ANSWER THE THREE QUESTIONS]
+        Pull the threads together. Yes to all three: 9/11 changed who received aid
+        (Cold War partners out, conflict zones and humanitarian recipients in),
+        how much was sent (per-year averages rose ~46%), and what kind of help
+        was funded (security and stabilization became the single largest category).
+    </p>
+
+    <p>
+        [PLACEHOLDER &mdash; THE CONTINUITY FOOTNOTE]
+        But the Israel/Egypt/Pakistan thread complicates the simple "everything
+        changed" story. Some structural commitments outlast presidents and crises.
+    </p>
+
+    <p>
+        [PLACEHOLDER &mdash; LIMITATIONS &amp; OPEN QUESTIONS]
+        What this analysis doesn't capture: per-capita aid, recipient outcomes,
+        what fraction of obligations actually get disbursed, military aid that runs
+        through DoD channels outside ForeignAssistance.gov. Worth naming the gaps
+        honestly so a careful reader knows the boundaries of the story.
+    </p>
+</section>
+
+
+<!-- ==========================================================================
+     BIBLIOGRAPHY
+     ========================================================================== -->
+<section class="prose bibliography" id="sources">
+    <h2>Sources</h2>
+    <ol>
+        <li>
+            US Department of State and USAID.
+            <em>ForeignAssistance.gov &mdash; US Foreign Aid by Country and Sector, 1946&ndash;2024.</em>
+            Accessed April&ndash;May 2026.
+            <a href="https://www.foreignassistance.gov/">foreignassistance.gov</a>
+        </li>
+        <li>
+            [PLACEHOLDER &mdash; CAMP DAVID ACCORDS source for Israel/Egypt context]
+        </li>
+        <li>
+            [PLACEHOLDER &mdash; PEPFAR background source]
+        </li>
+        <li>
+            [PLACEHOLDER &mdash; any other historical context cited]
+        </li>
+        <li>
+            Visualizations built with Tableau Public, Folium (Python),
+            and custom HTML/CSS.
+        </li>
+    </ol>
+</section>
+
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="site-foot">
+    <div class="prose">
+        Tracking US Foreign Aid &middot; Final project for Data 202, Spring 2026.<br>
+        Visualizations and analysis by Joseph Benke and Nico Kaplun-Muller.
+    </div>
+</footer>
+
+</body>
+</html>
