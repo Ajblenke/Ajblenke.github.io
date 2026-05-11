@@ -259,3 +259,12 @@ footer.site-foot {
     h2 { font-size: 1.4rem; }
     header.hero { padding: 3rem 0 2rem 0; }
 }
+
+/* In styles.css, add: */
+#maps .wide {
+    max-width: 1400px;   /* up from --col-wide: 1080px */
+}
+
+#maps .map-embed {
+    height: 600px;       /* up from 520px */
+}
