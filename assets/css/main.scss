@@ -19,6 +19,8 @@
     --shadow: 0 1px 3px rgba(60, 50, 30, 0.1);
     --shadow-lift: 0 8px 24px rgba(60, 50, 30, 0.16);
     --map-grid: rgba(63, 107, 80, 0.16);
+    --map-land: rgba(63, 107, 80, 0.1);
+    --map-coast: rgba(63, 107, 80, 0.3);
 
     /* The terminal stays dark in both themes; a terminal is a terminal. */
     --term-bg: #131a22;
@@ -47,6 +49,8 @@
     --shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
     --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.55);
     --map-grid: rgba(108, 184, 144, 0.14);
+    --map-land: rgba(108, 184, 144, 0.09);
+    --map-coast: rgba(108, 184, 144, 0.24);
 }
 
 * { box-sizing: border-box; }
@@ -421,6 +425,13 @@ section h2::after {
 .map-grid line {
     stroke: var(--map-grid);
     stroke-width: 1;
+}
+
+.map-land path {
+    fill: var(--map-land);
+    stroke: var(--map-coast);
+    stroke-width: 0.75;
+    stroke-linejoin: round;
 }
 
 .map-grid-labels text {
