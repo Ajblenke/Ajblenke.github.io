@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <script>
+        // Apply the saved theme before first paint to avoid a flash.
+        (function () {
+            var saved = localStorage.getItem("theme");
+            if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+                document.documentElement.dataset.theme = "dark";
+            }
+        })();
+    </script>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="container">
+            <a class="site-name" href="{{ '/' | relative_url }}">Joseph Blenke</a>
+            <div class="nav-links">
+                <a href="{{ '/#about' | relative_url }}">About</a>
+                <a href="{{ '/#projects' | relative_url }}">Projects</a>
+                <a href="{{ '/#contact' | relative_url }}">Contact</a>
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode">
+                    <span class="icon-sun" aria-hidden="true">&#9728;</span>
+                    <span class="icon-moon" aria-hidden="true">&#9789;</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>&copy; {{ site.time | date: "%Y" }} Joseph Blenke</span>
+            <span><a href="https://github.com/Ajblenke/Ajblenke.github.io">Site source on GitHub</a></span>
+        </div>
+    </footer>
+
+    <script src="{{ '/assets/js/theme.js' | relative_url }}"></script>
+</body>
+</html>

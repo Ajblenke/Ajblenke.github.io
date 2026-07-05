@@ -1,0 +1,14 @@
+title: Joseph Blenke
+description: >-
+  Data Science student at William & Mary concentrating in Spatial Data
+  Analytics. Projects in data visualization, GIS, HPC, and AI agents.
+url: "https://ajblenke.github.io"
+baseurl: ""
+
+# The foreign aid project is a standalone static page; don't run it through layouts.
+# Files without front matter are copied verbatim, so no include/exclude tricks needed.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - README.md

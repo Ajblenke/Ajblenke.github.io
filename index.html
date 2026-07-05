@@ -1,395 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tracking US Foreign Aid &mdash; A Data Visualization Project</title>
-    <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+---
+layout: default
+---
 
-<!-- ==========================================================================
-     HERO
-     ========================================================================== -->
-<header class="hero">
-    <div class="prose">
-        <p class="byline">Data 302 &middot; Final Project &middot; May 2026</p>
-        <h1>Tracking US Foreign Aid</h1>
-        <p class="subtitle">How September 11 reshaped seventy-eight years of American spending abroad and the three countries that didn't change.</p>
+<section class="hero">
+    <div class="container">
+        <h1>Hi, I'm Joseph.</h1>
+        <p class="tagline">
+            Data Science student at William &amp; Mary, concentrating in
+            <span class="accent">Spatial Data Analytics</span>.
+            I build things with data: maps, dashboards, pipelines, and AI agents.
+        </p>
+        <div class="contact-row">
+            <a href="https://github.com/Ajblenke">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                GitHub
+            </a>
+            <a href="mailto:josephblenke@gmail.com">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 2h12.5c.97 0 1.75.78 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.78.78 2 1.75 2Zm.5 1.5v.4l5.75 3.83 5.75-3.83v-.4H2.25Zm11.5 2.2-5.33 3.55a.75.75 0 0 1-.84 0L2.25 5.7v6.55h11.5V5.7Z"/></svg>
+                Email
+            </a>
+            <!-- TODO: replace # with your LinkedIn profile URL -->
+            <a href="#">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.63 13.63h-2.37V9.92c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.22V6h2.28v1.04h.03c.32-.6 1.09-1.24 2.25-1.24 2.4 0 2.85 1.58 2.85 3.64v4.19ZM3.54 4.96a1.38 1.38 0 1 1 0-2.75 1.38 1.38 0 0 1 0 2.75Zm1.19 8.67H2.35V6h2.38v7.63ZM14.82 0H1.18C.53 0 0 .52 0 1.16v13.68C0 15.48.53 16 1.18 16h13.64c.65 0 1.18-.52 1.18-1.16V1.16C16 .52 15.47 0 14.82 0Z"/></svg>
+                LinkedIn
+            </a>
+        </div>
     </div>
-</header>
-
-
-<!-- ==========================================================================
-     SECTION 1 — INTRODUCTION
-     ========================================================================== -->
-<section class="prose" id="intro">
-    <p class="lede">
-        Before September 11, 2001, the United States had obligated about eight billion dollars combined to Afghanistan and Ukraine. 
-        In the two and a half decades since, it has obligated more than two hundred and eighty-eight billion to those same two countries
-        more than thirty-six times as much, adjusted for inflation.
-    </p>
-
-    <p>
-        That number is striking on its own. But it raises a sharper question: 
-        did 9/11 change who America helps, how much America spends, or what kind of help America sends or all three? 
-        This project is an attempt to answer that question using seventy-eight years of US foreign aid records from ForeignAssistance.gov, 
-        the official US government database tracking every dollar the country has obligated abroad since 1946. 
-        The story the data tells turns out to be more complicated than a single pivot in 2001, but it is also more dramatic than the dollar totals alone suggest.
-    </p>
 </section>
 
-
-<!-- ==========================================================================
-     SECTION 2 — THE DATA
-     ========================================================================== -->
-<section class="prose" id="data">
-    <h2>The data behind the story</h2>
-
-    <p>
-        Every figure in this piece comes from ForeignAssistance.gov, a public database maintained by the US Department of State 
-        and USAID that tracks American aid to other countries from 1946 to the present. "Aid" here is a wide category: 
-        it covers vaccinations sent to clinics in Mozambique, food shipped to refugee camps in Jordan, training for Colombian police, 
-        infrastructure loans to Pakistan, and the rifles, radios, and artillery rounds delivered to Ukrainian soldiers since 2022. 
-        All of it gets recorded as a dollar amount, attached to a country, in a fiscal year, and tagged with a sector describing what the money was for.
-    </p>
-
-    <p>
-        One quirk of the dataset is worth noting, because it matters for reading the visualizations below.
-        Aid is tracked at four different stages of a pipeline, and the same dollar can show up under different names depending on where in the process you look. 
-        The four stages are Request, Appropriated, Obligated, and Disbursed. The Request is what the President asks Congress for at the start of the year. 
-        Appropriated is what Congress actually agrees to spend. Obligated is the money the government has formally committed by signing contracts and grant agreements. 
-        And Disbursed is the cash that has actually left the Treasury and arrived at its destination.
-    </p>
-
-    <p>
-        Throughout this piece, the numbers reflect Obligations in USD adjusted for inflation (constant 2024).
-        Obligations sit in the sweet spot of the pipeline: they're a firmer commitment than appropriations since Congress can change its mind about what it appropriated, 
-        but breaking a signed contract is harder. Using constant dollars matters because comparing eras without adjusting would make past commitments seem smaller than
-        they really were.
-
-    </p>
-</section>
-
-
-<!-- ==========================================================================
-     SECTION 3 — WHO: A TALE OF TWO ERAS  (Dashboard 2)
-     ========================================================================== -->
-<section id="who">
-    <div class="prose">
-        <h2>Who: a tale of two eras</h2>
-        <p>
-            Between 1946 and 2000, the United States obligated roughly $1.94 trillion in foreign aid, an average of about $35 billion a year. 
-            Between 2001 and 2024 it obligated $1.23 trillion while less in total, which works out to roughly $51 billion a year. 
-            America is spending more per year on aid after 9/11 than before it, even though the headline total looks smaller. 
-            The bubble chart below shows where the money went in each era.
-        </p>
-    </div>
-
-    <div class="wide viz">
-        <div class='tableauPlaceholder' id='viz1778460671088' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USForeignAidCommitments1946-2024&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='USForeignAidCommitments1946-2024&#47;Dashboard2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USForeignAidCommitments1946-2024&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                
-        <script type='text/javascript'> 
-            var divElement = document.getElementById('viz1778460671088');
-            var vizElement = divElement.getElementsByTagName('object')[0];                    
-            if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
-            else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
-            else { vizElement.style.width='100%';vizElement.style.minHeight='800px';vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);               
-        </script>
-    </div>
-
-    <div class="prose">
-        <p>        
-            The composition of those bubbles tells a different story in each half. Before 2001, Europe and Eurasia dominated at thirty-two percent of all aid, 
-            a legacy of the Marshall Plan and four decades of Cold War spending on NATO allies and former Soviet states. East Asia and Oceania came second at 
-            twenty-four percent, anchored by Vietnam, South Korea, and Japan. Sub-Saharan Africa sat at the bottom of the list, with less than five percent of the total. 
-            After 2001, the picture inverts. The Middle East and North Africa moves into first place at thirty percent. Sub-Saharan Africa, which was last place in the Cold War era, 
-            rockets to second at twenty-four percent, nearly five times its previous share. Europe and Eurasia drops to fourth, even with Ukraine pulling the region's number back
-            up after 2022.
-        </p>
-        <div class="callout">
-            <div class="callout-label">A second pattern</div>
-            <p style="margin-bottom:0;">
-                Three countries appear in the top fifteen recipients in both eras: Israel, Egypt, and Pakistan. 
-                Israel alone has received more US aid than any other country in either period $211 billion before 2001 and another $100 billion after.
-                The Israel-Egypt pair traces back to the Camp David Accords of 1978, when the Carter administration brokered the first peace treaty between
-                Israel and an Arab neighbor and committed the United States to large, that has held across nine administrations.
-                Pakistan's continuity has a different logic: a Cold War partner during the Soviet-Afghan war in the 1980s, it became a frontline ally again after 2001.
-                Whatever else changed at the turn of the millennium, these three relationships did not.
+<section id="about">
+    <div class="container">
+        <h2>About</h2>
+        <div class="section-body">
+            <p>
+                I grew up across six countries as part of a foreign service family,
+                and that shaped what I want from technical work: it should matter
+                somewhere real. Most of my projects sit where data meets geography,
+                from mapping 78 years of US foreign aid to assessing wildfire burn
+                severity from satellite imagery.
+            </p>
+            <p>
+                This summer I'm putting that to work at the US Consulate in
+                Frankfurt, building on the Palantir Foundry stack. I hold an
+                active Top Secret clearance from the US Department of State.
+            </p>
+            <p>
+                Outside of coursework I run Fedora as my daily driver, tinker with
+                local model deployment through Ollama and Hugging Face, and build
+                small tools that make my own day run better.
             </p>
         </div>
     </div>
 </section>
 
-<!-- ==========================================================================
-     SECTION 4 — THE PIVOT: 9/11
-     ========================================================================== -->
-<section class="prose" id="pivot">
-    <h2>Why 2001 was the turning point</h2>
-
-    <p>
-        The "War on Terror" launched in late 2001 reframed foreign aid as a tool of military strategy in a way it had not been since Vietnam. 
-        Stabilization Operations, counterterrorism financing, and post-conflict reconstruction all became standing budget priorities rather than emergency one-offs. 
-        The final report of the Special Inspector General for Afghanistan Reconstruction, released in December 2025, captured the scale of the experiment: 
-        $148 billion appropriated for Afghan reconstruction alone, $89 billion of it going to security-sector projects, across twenty years.
-        Iraq absorbed another $105 billion under the same logic. At roughly the same time, President George W. Bush announced the 
-        President's Emergency Plan for AIDS Relief, committing $15 billion over five years to fight HIV/AIDS a program that would grow into the largest commitment by any nation to address a single disease in history.
-    </p>
-
-    <p>
-        Regional totals are one way of seeing what changed. A country-by-country view is sharper. 
-        The two maps below shade each country by the total obligations it received in inflation-adjusted dollars; 
-        click between the two eras to compare.
-    </p>
-</section>
-
-
-<!-- ==========================================================================
-     SECTION 5 — GEOGRAPHIC DETAIL (the two choropleth maps)
-     ========================================================================== -->
-<section id="maps">
-    <div class="prose">
-        <h2>The geography, country by country</h2>
-        <p>
-            Both maps include Obligations and are shaded on a logarithmic color scale, so that small recipients remain visible. 
-            Hover any country for its cumulative total in that era. It is worth noting that pre-2001 obligations were the only part of the pipeline being tracked.
-        </p>
-    </div>
-
-    <div class="wide">
-        <div class="map-pair">
-            <div class="map-block">
-                <h4>Before 2001 &middot; 1946&ndash;2000</h4>
-                <div class="map-embed">
-                    <iframe src="aid_pre2001.html" title="Pre-2001 US foreign aid map"></iframe>
-                </div>
+<section id="goals">
+    <div class="container">
+        <h2>What I'm working toward</h2>
+        <div class="goals-grid">
+            <div class="goal">
+                <h3>AI and agent development</h3>
+                <p>
+                    Building practical skills in agent workflows and open source
+                    model deployment, and working toward Anthropic certifications.
+                </p>
             </div>
-            <div class="map-block">
-                <h4>After 2001 &middot; 2001&ndash;present</h4>
-                <div class="map-embed">
-                    <iframe src="aid_post2001.html" title="Post-2001 US foreign aid map"></iframe>
-                </div>
+            <div class="goal">
+                <h3>Spatial data at scale</h3>
+                <p>
+                    Deepening the GIS and remote sensing side of my degree and
+                    pairing it with the compute to handle large datasets.
+                </p>
+            </div>
+            <div class="goal">
+                <h3>Linux systems skills</h3>
+                <p>
+                    Studying for the RHCSA to back my data work with solid
+                    systems administration fundamentals.
+                </p>
             </div>
         </div>
-        <p class="viz-caption">
-            Both maps shaded by total Obligations in inflation-adjusted USD.
-            Use the layer toggle in the upper-right of the post-2001 map to switch
-            between Budget Request, Appropriated, Obligations, and Disbursements.
-        </p>
-    </div>
-
-    <div class="prose">
-        <p>
-            The pre-2001 map looks like a Cold War atlas. The deepest shading sits in Western Europe and in the partners of the containment strategy:
-            South Korea, South Vietnam, Israel, Egypt, Turkey. The post-2001 map looks like an evening news map. 
-            Afghanistan and Iraq, the two longest American wars of the twenty-first century, are the darkest on the board. 
-            Ukraine, almost invisible before 2001, becomes one of the largest recipients in the dataset on the strength of appropriations made in just three years, 
-            2022 through 2024. Sub-Saharan Africa lights up in a way it never did during the Cold War with a pattern that comes back into focus in the sector breakdown below.
-        </p>
     </div>
 </section>
 
-
-<!-- ==========================================================================
-     SECTION 6 — HOW THE SHIFT UNFOLDED (Dashboard 3, interactive)
-     ========================================================================== -->
-<section id="how">
-    <div class="prose">
-        <h2>How the shift unfolded, year by year</h2>
-        <p>
-            The era-totals view smooths out a lot. Aid does not arrive in steady annual installments it spikes around specific events. 
-            Press play on the visualization below to watch which countries dominated the regional bubble chart year by year, from 1946 forward.
-        </p>
-    </div>
-
-    <div class="wide viz">
-        <div class='tableauPlaceholder' id='viz1778461196011' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USForeignAidCommitments1946-2024&#47;Dashboard3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='USForeignAidCommitments1946-2024&#47;Dashboard3' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USForeignAidCommitments1946-2024&#47;Dashboard3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1778461196011');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
-            else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} 
-            else { vizElement.style.width='100%';vizElement.style.minHeight='800px';vizElement.style.maxHeight=(divElement.offsetWidth*1.77)+'px';}
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
-        </script>
-    </div>
-
-    <div class="prose">
-        <p>
-            A few moments are worth pausing on. Iraq's reconstruction spending peaks in 2006 at $14 billion in a single year, then tapers as US troops draw down. 
-            Afghanistan's curve climbs steadily through the 2000s and peaks at $18 billion in 2011 before declining. 
-            There is a long quiet stretch in the late 2010s when no single country dominates. 
-            Then, in 2022, Ukraine appears almost out of nowhere: $22 billion in obligations that year, $50 billion in 2023 being the single largest one-year commitment 
-            to any country in the entire dataset. The first time a European country has held the top spot since the Marshall Plan, according to the Council on Foreign Relations.
-        </p>
+<section id="projects">
+    <div class="container">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            {% for project in site.data.projects %}
+            <a class="card" href="{% if project.external %}{{ project.url }}{% else %}{{ project.url | relative_url }}{% endif %}"{% if project.external %} target="_blank" rel="noopener"{% endif %}>
+                <h3>
+                    {{ project.name }}
+                    {% if project.external %}<span class="external-mark" aria-hidden="true">&#8599;</span>{% endif %}
+                </h3>
+                <p>{{ project.description }}</p>
+                <div class="tag-row">
+                    {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
     </div>
 </section>
 
-
-<!-- ==========================================================================
-     SECTION 7 — WHAT KIND OF HELP (sector chart)
-     ========================================================================== -->
-<section id="what-kind">
-    <div class="prose">
-        <h2>What kind of help: from food to firepower</h2>
-        <p>
-            If 9/11 changed who received American aid and how much, it also changed what the aid was for.
-             ForeignAssistance.gov classifies every dollar by sector: health, agriculture, education, infrastructure, security, and so on. 
-             The chart below tracks the five largest sectors in the post-2001 era over time.
-        </p>
-    </div>
-
-    <div class="wide viz">
-        <div class='tableauPlaceholder' id='viz1778461298751' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USForeignAidCommitments1946-2024&#47;SectorYear&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='USForeignAidCommitments1946-2024&#47;SectorYear' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;US&#47;USForeignAidCommitments1946-2024&#47;SectorYear&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
-        <script type='text/javascript'>
-            var divElement = document.getElementById('viz1778461298751'); 
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement)
-        </script>
-    </div>
-
-    <div class="prose">
-        <p>
-            Stabilization Operations and Security Sector Reform is largest category that covers everything from training Afghan police to arming Ukrainian artillery units
-            dominates the post-2001 era. It accounts for $385 billion in obligations between 2001 and 2024, about a quarter of all foreign aid in that period and nearly
-            double the next-largest sector. Its peaks line up with the wars it funded: $23 billion in 2008 and again in 2011 (Afghanistan and Iraq),
-            a long decline through the late 2010s, and a sharp return to $21 billion in 2023 as Ukraine drew down American weapons stockpiles.
-        </p>
-
-        <p>
-            The orange line is the more surprising story. HIV/AIDS spending stands at almost nothing in 2001 about $530 million. 
-            By 2004, one year after President Bush announced PEPFAR in his State of the Union, the line has nearly tripled to $3 billion. 
-            By 2008 it is at $6.6 billion and counts as the third-largest sector of US foreign aid. Over the post-2001 period as a whole,
-            HIV/AIDS alone accounts for $155 billion in obligations and ten percent of American foreign aid.
-            The two trend lines on the same chart Stabilization Operations and HIV/AIDS are a useful reminder that the post-9/11 era cannot be summarized in one word.
-            The same two decades that produced the longest wars in American history also produced the most ambitious global health program in the country's history.
-        </p>
+<section id="contact">
+    <div class="container">
+        <h2>Get in touch</h2>
+        <div class="section-body">
+            <p>
+                The fastest way to reach me is email at
+                <a href="mailto:josephblenke@gmail.com">josephblenke@gmail.com</a>.
+                My code lives on <a href="https://github.com/Ajblenke">GitHub</a>.
+            </p>
+        </div>
     </div>
 </section>
-
-
-<!-- ==========================================================================
-     SECTION 8 — CONCLUSION
-     ========================================================================== -->
-<section class="prose" id="conclusion">
-    <h2>What the data shows</h2>
-
-    <p>
-        The question this piece opened with was whether September 11 changed who the United States helps, how much, or what kind of help it sends. 
-        The answer, from the data, is yes to all three. The geographic center of gravity shifted from Cold War Europe to the Middle East and Sub-Saharan Africa.
-        Per-year spending went up, even though the twenty-five-year total looks smaller than the fifty-five-year total. And the mix of aid tilted decisively toward security and stabilization, with a major counter-trend in global health.
-
-    </p>
-
-    <p>
-        The "everything changed" framing also doesn't capture the full picture as Israel, Egypt, and Pakistan stayed in the top fifteen in both eras.
-        The commitments cemented at Camp David in 1978 outlasted the Soviet Union, the Cold War, and the entire War on Terror.
-        Whatever else the data shows, it shows that some American foreign policy relationships have an inertia of their own
-        older than the events we usually treat as turning points.
-    </p>
-
-    <p>
-        A few things this dataset does not capture, and that would be worth a follow-up project. 
-        It tracks dollars obligated, not outcomes; nothing here speaks to whether the aid actually achieved what it was meant to achieve. 
-        This data covers only the State Department and USAID-administered foreign assistance accounts; Department of Defense channels,
-        which fund a large share of actual military hardware transfers, sit outside the dataset entirely. 
-        The data answers what changed after 9/11. It does not answer whether the changes worked.
-    </p>
-</section>
-
-
-<!-- ==========================================================================
-     BIBLIOGRAPHY
-     ========================================================================== -->
-<section class="prose bibliography" id="sources">
-    <h2>Sources</h2>
-    <ol>
-
-  <li>
-
-    US Department of State and USAID.
-
-    <em>ForeignAssistance.gov &mdash; US Foreign Aid by Country and Sector, 1946&ndash;2024.</em>
-
-    Accessed April&ndash;May 2026.
-
-    <a href="https://www.foreignassistance.gov/">foreignassistance.gov</a>
-
-  </li>
-
-  <li>
-
-    US Department of State, Office of the Historian.
-
-    <em>Camp David Accords and the Arab-Israeli Peace Process.</em>
-
-    <a href="https://history.state.gov/milestones/1977-1980/camp-david">history.state.gov/milestones/1977-1980/camp-david</a>
-
-  </li>
-
-  <li>
-
-    Special Inspector General for Afghanistan Reconstruction (SIGAR).
-
-    <em>Final Report: Lessons from Twenty Years of US Reconstruction in Afghanistan.</em>
-
-    December 3, 2025.
-
-    <a href="https://www.sigar.mil/">sigar.mil</a>
-
-  </li>
-
-  <li>
-
-    Kaiser Family Foundation (KFF).
-
-    <em>The U.S. President's Emergency Plan for AIDS Relief (PEPFAR).</em>
-
-    Fact sheet, last updated 2025.
-
-    <a href="https://www.kff.org/global-health-policy/fact-sheet/the-u-s-presidents-emergency-plan-for-aids-relief-pepfar/">kff.org</a>
-
-  </li>
-
-  <li>
-
-    Council on Foreign Relations.
-
-    <em>How Much US Aid Is Going to Ukraine?</em>
-
-    Updated 2026.
-
-    <a href="https://www.cfr.org/articles/how-much-us-aid-going-ukraine">cfr.org/articles/how-much-us-aid-going-ukraine</a>
-
-  </li>
-
-  <li>
-
-    Visualizations built with Tableau Public, Folium (Python), and custom HTML/CSS.
-
-  </li>
-
-</ol>
-
-</section>
-
-
-<!-- ==========================================================================
-     FOOTER
-     ========================================================================== -->
-<footer class="site-foot">
-    <div class="prose">
-        Tracking US Foreign Aid &middot; Final project for Data 302, Spring 2026.<br>
-        Visualizations and analysis by Joseph Benke and Nico Kaplun-Muller.
-    </div>
-</footer>
-
-</body>
-</html>

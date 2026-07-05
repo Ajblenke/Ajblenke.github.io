@@ -1,0 +1,36 @@
+# Project cards rendered on the homepage grid, in display order.
+- name: Tracking US Foreign Aid
+  url: /projects/foreign-aid/
+  external: false
+  description: >-
+    A data driven narrative on 78 years of US foreign aid and how September 11
+    reshaped it. Built on official records from ForeignAssistance.gov and told
+    through interactive Tableau dashboards and Folium choropleth maps.
+  tags: [Tableau, Python, Folium, Data storytelling]
+
+- name: Obsidian Daily Dashboard
+  url: https://github.com/Ajblenke/obsidian-daily-dashboard
+  external: true
+  description: >-
+    An Obsidian plugin that puts the whole day in one tab: a morning news
+    digest, a week of calendar events, Claude Code token usage charts, and a
+    live todo list.
+  tags: [TypeScript, Obsidian API, Claude Code]
+
+- name: Pixel-Mosaic
+  url: https://github.com/Skipper2197/Pixel-Mosaic
+  external: true
+  description: >-
+    A photomosaic generator that rebuilds a target image from thousands of
+    tiles, matched by perceptual LAB color through a k-d tree. Runs locally or
+    on William & Mary's SciClone HPC cluster.
+  tags: [Python, HPC, Bash, Image processing]
+
+- name: Chimney Tops Fire Burn Severity
+  url: https://storymaps.arcgis.com/stories/c9817f87dfc748f597ea6de957a67ce8
+  external: true
+  description: >-
+    A remote sensing assessment of the 2016 Chimney Tops Fire in the Great
+    Smoky Mountains, mapping burn severity from satellite imagery and
+    presented as an ArcGIS StoryMap.
+  tags: [GIS, Remote sensing, ArcGIS]
