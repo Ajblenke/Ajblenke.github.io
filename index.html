@@ -4,12 +4,36 @@ layout: default
 
 <section class="hero">
     <div class="container">
-        <h1>Hi, I'm Joseph.</h1>
-        <p class="tagline">
-            Data Science student at William &amp; Mary, concentrating in
-            <span class="accent">Spatial Data Analytics</span>.
-            I build things with data: maps, dashboards, pipelines, and AI agents.
-        </p>
+        <p class="hero-coords">37.2707&deg; N &middot; 76.7075&deg; W &middot; Williamsburg, Virginia</p>
+
+        <div class="terminal" id="hero-terminal">
+            <div class="term-bar" aria-hidden="true">
+                <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+                <span class="term-title">joseph@earth: ~</span>
+            </div>
+            <div class="term-body">
+                <p class="term-line"><span class="term-prompt">joseph@earth:~$</span> <span class="term-cmd">whoami</span></p>
+                <div class="term-out">
+                    <h1>Hi! I'm Joseph Blenke.</h1>
+                    <p>
+                        Data Science student at William &amp; Mary, concentrating in
+                        <span class="accent">Spatial Data Analytics</span> and powered
+                        mostly by curiosity. I build things with data: maps,
+                        dashboards, pipelines, and AI agents.
+                    </p>
+                </div>
+                <p class="term-line"><span class="term-prompt">joseph@earth:~$</span> <span class="term-cmd">cat learning.txt</span></p>
+                <div class="term-out">
+                    <ul class="term-list">
+                        <li>RHCSA, the Red Hat sysadmin certification</li>
+                        <li>AI agent workflows and Anthropic certifications</li>
+                        <li>fine tuning models on a Jetson Orin Nano</li>
+                    </ul>
+                </div>
+                <p class="term-line term-line-last"><span class="term-prompt">joseph@earth:~$</span> <span class="term-cursor" aria-hidden="true"></span></p>
+            </div>
+        </div>
+
         <div class="contact-row">
             <a href="https://github.com/Ajblenke">
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -19,8 +43,7 @@ layout: default
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.75 2h12.5c.97 0 1.75.78 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25v-8.5C0 2.78.78 2 1.75 2Zm.5 1.5v.4l5.75 3.83 5.75-3.83v-.4H2.25Zm11.5 2.2-5.33 3.55a.75.75 0 0 1-.84 0L2.25 5.7v6.55h11.5V5.7Z"/></svg>
                 Email
             </a>
-            <!-- TODO: replace # with your LinkedIn profile URL -->
-            <a href="#">
+            <a href="https://www.linkedin.com/in/josephblenke/">
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.63 13.63h-2.37V9.92c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.22V6h2.28v1.04h.03c.32-.6 1.09-1.24 2.25-1.24 2.4 0 2.85 1.58 2.85 3.64v4.19ZM3.54 4.96a1.38 1.38 0 1 1 0-2.75 1.38 1.38 0 0 1 0 2.75Zm1.19 8.67H2.35V6h2.38v7.63ZM14.82 0H1.18C.53 0 0 .52 0 1.16v13.68C0 15.48.53 16 1.18 16h13.64c.65 0 1.18-.52 1.18-1.16V1.16C16 .52 15.47 0 14.82 0Z"/></svg>
                 LinkedIn
             </a>
@@ -31,24 +54,160 @@ layout: default
 <section id="about">
     <div class="container">
         <h2>About</h2>
-        <div class="section-body">
-            <p>
-                I grew up across six countries as part of a foreign service family,
-                and that shaped what I want from technical work: it should matter
-                somewhere real. Most of my projects sit where data meets geography,
-                from mapping 78 years of US foreign aid to assessing wildfire burn
-                severity from satellite imagery.
-            </p>
-            <p>
-                This summer I'm putting that to work at the US Consulate in
-                Frankfurt, building on the Palantir Foundry stack. I hold an
-                active Top Secret clearance from the US Department of State.
-            </p>
-            <p>
-                Outside of coursework I run Fedora as my daily driver, tinker with
-                local model deployment through Ollama and Hugging Face, and build
-                small tools that make my own day run better.
-            </p>
+        <div class="about-grid">
+            <div class="section-body">
+                <p>
+                    I'm a foreign service kid. Since 2005 I've called nine places
+                    home across seven countries: Tennessee, Thailand, Indonesia,
+                    Jordan, Turkey, Virginia, Belgium, Jordan again (it earned the
+                    second tour), and Germany, where my family is posted while I
+                    hold down home base in Williamsburg at William &amp; Mary.
+                    Moving that much taught me the rule I try to live by: wherever
+                    you land, try the new thing. You only get out what you put in.
+                </p>
+                <p>
+                    All that moving is probably why I ended up in spatial data.
+                    Maps were how every new city started to make sense, and they
+                    are still how I think. I've charted 78 years of US foreign
+                    aid, mapped wildfire burn severity from satellite imagery,
+                    and this summer I'm at the US Consulate in Frankfurt building
+                    on the Palantir Foundry stack. I hold an active Top Secret
+                    clearance from the US Department of State.
+                </p>
+                <p>
+                    Away from a keyboard I'm the president of my club soccer
+                    team, somewhere in the middle of Game of Thrones (no
+                    spoilers), and always either planning a trip or eating my way
+                    through one. If you ever need a restaurant recommendation for
+                    any pin on the map below, I'm your guy.
+                </p>
+                <p>
+                    The rest of my free time disappears into my Fedora machine:
+                    local models through Ollama and Hugging Face, a Jetson Orin
+                    Nano I'm learning to fine tune models on, and small tools
+                    that make my own day run better.
+                </p>
+            </div>
+            <figure class="about-photo">
+                <span class="photo-pin" aria-hidden="true"></span>
+                <img src="{{ '/assets/img/joseph.jpg' | relative_url }}"
+                     alt="Joseph grinning in front of a giant Dragonite and Pikachu display"
+                     width="900" height="675" loading="lazy">
+                <figcaption>Establishing diplomatic relations.</figcaption>
+            </figure>
+        </div>
+
+        <div class="map-block">
+            <h3>The route so far</h3>
+            <figure class="map-figure">
+                <div class="map-scroll">
+                    <svg class="route-map" viewBox="0 0 1000 360" role="img"
+                         aria-label="A route map of the nine places Joseph has lived since 2005: Tennessee, Thailand, Indonesia, Jordan, Turkey, Virginia, Belgium, Jordan again, Germany, and now Williamsburg, Virginia for William and Mary.">
+                        <defs>
+                            <marker id="route-arrow" viewBox="0 0 8 8" refX="6" refY="4"
+                                    markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                                <path d="M0,0 L8,4 L0,8 z" class="route-arrowhead"/>
+                            </marker>
+                        </defs>
+
+                        <g class="map-grid" aria-hidden="true">
+                            <line x1="46.5" y1="0" x2="46.5" y2="360"/>
+                            <line x1="116.3" y1="0" x2="116.3" y2="360"/>
+                            <line x1="186" y1="0" x2="186" y2="360"/>
+                            <line x1="255.8" y1="0" x2="255.8" y2="360"/>
+                            <line x1="325.6" y1="0" x2="325.6" y2="360"/>
+                            <line x1="395.3" y1="0" x2="395.3" y2="360"/>
+                            <line x1="465.1" y1="0" x2="465.1" y2="360"/>
+                            <line x1="534.9" y1="0" x2="534.9" y2="360"/>
+                            <line x1="604.7" y1="0" x2="604.7" y2="360"/>
+                            <line x1="674.4" y1="0" x2="674.4" y2="360"/>
+                            <line x1="744.2" y1="0" x2="744.2" y2="360"/>
+                            <line x1="814" y1="0" x2="814" y2="360"/>
+                            <line x1="883.7" y1="0" x2="883.7" y2="360"/>
+                            <line x1="953.5" y1="0" x2="953.5" y2="360"/>
+                            <line x1="0" y1="65" x2="1000" y2="65"/>
+                            <line x1="0" y1="140" x2="1000" y2="140"/>
+                            <line x1="0" y1="215" x2="1000" y2="215"/>
+                            <line x1="0" y1="290" x2="1000" y2="290"/>
+                        </g>
+
+                        <g class="map-grid-labels" aria-hidden="true">
+                            <text x="994" y="60" text-anchor="end">45&deg;N</text>
+                            <text x="994" y="135" text-anchor="end">30&deg;N</text>
+                            <text x="994" y="210" text-anchor="end">15&deg;N</text>
+                            <text x="994" y="285" text-anchor="end">0&deg;</text>
+                            <text x="120" y="354">75&deg;W</text>
+                            <text x="469" y="354">0&deg;</text>
+                            <text x="887" y="354">90&deg;E</text>
+                        </g>
+
+                        <text class="map-title" x="14" y="24">WHERE I'VE LIVED &middot; 2005 &#8594; NOW</text>
+
+                        <g class="map-legend" aria-hidden="true">
+                            <line class="legend-move" x1="110" y1="296" x2="150" y2="296"/>
+                            <text x="158" y="300">foreign service moves</text>
+                            <line class="legend-now" x1="110" y1="318" x2="150" y2="318" marker-end="url(#route-arrow)"/>
+                            <text x="158" y="322">off to William &amp; Mary</text>
+                        </g>
+
+                        <g class="map-compass" aria-hidden="true">
+                            <text x="24" y="286" text-anchor="middle">N</text>
+                            <line x1="24" y1="316" x2="24" y2="292" marker-end="url(#route-arrow)"/>
+                        </g>
+
+                        <g class="map-route" aria-hidden="true">
+                            <path d="M61.5,109.2 Q500,-35 932.6,221.3"/>
+                            <path d="M932.6,221.3 Q975,270 961.9,321"/>
+                            <path d="M961.9,321 Q780,295 632.2,130.3"/>
+                            <path d="M632.2,130.3 Q607,110 617.9,90.4"/>
+                            <path d="M617.9,90.4 Q350,-15 108.3,103.7"/>
+                            <path d="M108.3,103.7 Q280,5 485.4,35.8"/>
+                            <path d="M485.4,35.8 Q550,55 632.2,130.3"/>
+                            <path d="M632.2,130.3 Q600,65 505.5,39.5"/>
+                            <path class="route-now" d="M505.5,39.5 Q300,-25 118,88" marker-end="url(#route-arrow)"/>
+                        </g>
+
+                        <g class="map-pins">
+                            <g class="map-pin">
+                                <circle cx="61.5" cy="109.2" r="5"/>
+                                <text x="14" y="134">Tennessee '05</text>
+                            </g>
+                            <g class="map-pin">
+                                <circle cx="932.6" cy="221.3" r="5"/>
+                                <text x="918" y="216" text-anchor="end">Thailand '05&ndash;'07</text>
+                            </g>
+                            <g class="map-pin">
+                                <circle cx="961.9" cy="321" r="5"/>
+                                <text x="946" y="326" text-anchor="end">Indonesia '07&ndash;'09</text>
+                            </g>
+                            <g class="map-pin">
+                                <circle cx="632.2" cy="130.3" r="5.5"/>
+                                <text x="646" y="136">Jordan '09&ndash;'13 &amp; '21&ndash;'24</text>
+                            </g>
+                            <g class="map-pin">
+                                <circle cx="617.9" cy="90.4" r="5"/>
+                                <text x="630" y="84">Turkey '13&ndash;'16</text>
+                            </g>
+                            <g class="map-pin">
+                                <circle cx="485.4" cy="35.8" r="5"/>
+                                <line class="pin-leader" x1="482" y1="30" x2="474" y2="14"/>
+                                <text x="470" y="11" text-anchor="end">Belgium '18&ndash;'21</text>
+                            </g>
+                            <g class="map-pin">
+                                <circle cx="505.5" cy="39.5" r="5"/>
+                                <text x="519" y="32">Germany '24&ndash;'27</text>
+                            </g>
+                            <g class="map-pin pin-home">
+                                <circle class="pin-pulse" cx="108.3" cy="103.7" r="6"/>
+                                <circle cx="108.3" cy="103.7" r="5.5"/>
+                                <text x="126" y="108">Virginia '16&ndash;'18</text>
+                                <text class="pin-now-label" x="126" y="125">William &amp; Mary &middot; now</text>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+                <figcaption>Scale: roughly one childhood.</figcaption>
+            </figure>
         </div>
     </div>
 </section>
@@ -60,15 +219,16 @@ layout: default
             <div class="goal">
                 <h3>AI and agent development</h3>
                 <p>
-                    Building practical skills in agent workflows and open source
-                    model deployment, and working toward Anthropic certifications.
+                    Building practical skills in agent workflows, working toward
+                    Anthropic certifications, and learning to fine tune models
+                    on a Jetson Orin Nano.
                 </p>
             </div>
             <div class="goal">
                 <h3>Spatial data at scale</h3>
                 <p>
-                    Deepening the GIS and remote sensing side of my degree and
-                    pairing it with the compute to handle large datasets.
+                    Deepening the GIS side of my degree and pairing it with the
+                    compute to handle large datasets.
                 </p>
             </div>
             <div class="goal">
@@ -110,6 +270,8 @@ layout: default
                 The fastest way to reach me is email at
                 <a href="mailto:josephblenke@gmail.com">josephblenke@gmail.com</a>.
                 My code lives on <a href="https://github.com/Ajblenke">GitHub</a>.
+                And if you just want a restaurant recommendation for any pin on
+                the map above, that works too.
             </p>
         </div>
     </div>
