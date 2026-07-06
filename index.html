@@ -47,6 +47,10 @@ layout: default
                 <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13.63 13.63h-2.37V9.92c0-.89-.02-2.03-1.24-2.03-1.24 0-1.43.97-1.43 1.96v3.78H6.22V6h2.28v1.04h.03c.32-.6 1.09-1.24 2.25-1.24 2.4 0 2.85 1.58 2.85 3.64v4.19ZM3.54 4.96a1.38 1.38 0 1 1 0-2.75 1.38 1.38 0 0 1 0 2.75Zm1.19 8.67H2.35V6h2.38v7.63ZM14.82 0H1.18C.53 0 0 .52 0 1.16v13.68C0 15.48.53 16 1.18 16h13.64c.65 0 1.18-.52 1.18-1.16V1.16C16 .52 15.47 0 14.82 0Z"/></svg>
                 LinkedIn
             </a>
+            <a href="{{ '/assets/resume/Joseph-Blenke-Resume.pdf' | relative_url }}" target="_blank" rel="noopener">
+                <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.75 0h6.19c.46 0 .91.18 1.24.51l2.31 2.31c.33.33.51.78.51 1.24v10.19c0 .97-.78 1.75-1.75 1.75H3.75C2.78 16 2 15.22 2 14.25V1.75C2 .78 2.78 0 3.75 0Zm0 1.5a.25.25 0 0 0-.25.25v12.5c0 .14.11.25.25.25h8.5a.25.25 0 0 0 .25-.25V4.66a.25.25 0 0 0-.07-.18l-2.66-2.66a.25.25 0 0 0-.18-.07l-5.84-.25ZM5 6.75c0-.41.34-.75.75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 6.75Zm0 3c0-.41.34-.75.75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5A.75.75 0 0 1 5 9.75Zm0 3c0-.41.34-.75.75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"/></svg>
+                Resume
+            </a>
         </div>
     </div>
 </section>
@@ -249,7 +253,7 @@ layout: default
         <h2>Projects</h2>
         <div class="project-grid">
             {% for project in site.data.projects %}
-            <a class="card" href="{% if project.external %}{{ project.url }}{% else %}{{ project.url | relative_url }}{% endif %}"{% if project.external %} target="_blank" rel="noopener"{% endif %}>
+            {% if project.url %}<a class="card" href="{% if project.external %}{{ project.url }}{% else %}{{ project.url | relative_url }}{% endif %}"{% if project.external %} target="_blank" rel="noopener"{% endif %}>{% else %}<div class="card">{% endif %}
                 <h3>
                     {{ project.name }}
                     {% if project.external %}<span class="external-mark" aria-hidden="true">&#8599;</span>{% endif %}
@@ -258,7 +262,7 @@ layout: default
                 <div class="tag-row">
                     {% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
                 </div>
-            </a>
+            {% if project.url %}</a>{% else %}</div>{% endif %}
             {% endfor %}
         </div>
     </div>

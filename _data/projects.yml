@@ -8,6 +8,17 @@
     through interactive Tableau dashboards and Folium choropleth maps.
   tags: [Tableau, Python, Folium, Data storytelling]
 
+- name: Diplomatic IT Service Dashboard
+  url:
+  external: false
+  description: >-
+    A Palantir Foundry dashboard built at U.S. Consulate Frankfurt, tracking
+    60,000+ IT service events across U.S. diplomatic missions worldwide and
+    cross-referenced with temporary duty assignment records, so support
+    demand and staffing movements explain each other. Internal system, so no
+    link; the story lives on my resume.
+  tags: [Palantir Foundry, Data pipelines, Data viz]
+
 - name: Obsidian Daily Dashboard
   url: https://github.com/Ajblenke/obsidian-daily-dashboard
   external: true
