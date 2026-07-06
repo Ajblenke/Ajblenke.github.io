@@ -4,6 +4,15 @@
 (function () {
     "use strict";
 
+    // Typing pace, all in milliseconds. Raise numbers to slow it down.
+    var SPEED = {
+        startDelay: 600,   // wait before the first prompt line appears
+        charBase: 85,      // minimum time per typed character
+        charJitter: 45,    // extra random time per character, for a human feel
+        afterCommand: 350, // pause after a command finishes typing
+        afterOutput: 600   // pause after an output block appears
+    };
+
     var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // ---------- terminal typing ----------
@@ -38,25 +47,27 @@
                 cmd.textContent = "";
                 cmd.classList.add("typing");
                 var j = 0;
-                var ticker = setInterval(function () {
+                var typeChar = function () {
                     j += 1;
                     cmd.textContent = full.slice(0, j);
-                    if (j >= full.length) {
-                        clearInterval(ticker);
+                    if (j < full.length) {
+                        setTimeout(typeChar, SPEED.charBase + Math.random() * SPEED.charJitter);
+                    } else {
                         setTimeout(function () {
                             cmd.classList.remove("typing");
                             next();
-                        }, 200);
+                        }, SPEED.afterCommand);
                     }
-                }, 45);
+                };
+                setTimeout(typeChar, SPEED.charBase);
             } else {
-                // Output blocks and the final prompt appear after a short beat,
+                // Output blocks and the final prompt appear after a beat,
                 // like a command finishing.
-                setTimeout(next, el.classList.contains("term-out") ? 340 : 220);
+                setTimeout(next, el.classList.contains("term-out") ? SPEED.afterOutput : SPEED.afterCommand);
             }
         };
 
-        setTimeout(next, 350);
+        setTimeout(next, SPEED.startDelay);
     }
 
     // ---------- route map reveal ----------
