@@ -284,6 +284,10 @@ h1, h2, h3 {
 /* Typing script hides pieces with visibility so layout height stays stable. */
 .term-hidden { visibility: hidden; }
 
+/* Output lines print one at a time with a quick fade (see hero.js). */
+.term-out h1, .term-out p, .term-out li { transition: opacity 0.18s ease; }
+.term-out .term-hidden { opacity: 0; }
+
 .contact-row {
     display: flex;
     flex-wrap: wrap;
@@ -546,32 +550,6 @@ section h2::after {
 }
 .js-anim .route-map.map-in .map-route path { opacity: 0.7; }
 .js-anim .route-map.map-in .map-route .route-now { opacity: 0.95; }
-
-/* ---------- goals ---------- */
-.goals-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.2rem;
-    margin-top: 0.5rem;
-}
-
-.goal {
-    background: var(--bg-raised);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.2rem 1.4rem;
-}
-
-.goal h3 {
-    margin: 0 0 0.4rem 0;
-    font-size: 1.02rem;
-}
-
-.goal p {
-    margin: 0;
-    font-size: 0.94rem;
-    color: var(--text-muted);
-}
 
 /* ---------- project cards ---------- */
 .project-grid {

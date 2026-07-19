@@ -10,6 +10,7 @@
         charBase: 85,      // minimum time per typed character
         charJitter: 45,    // extra random time per character, for a human feel
         afterCommand: 350, // pause after a command finishes typing
+        lineDelay: 140,    // gap between output lines printing
         afterOutput: 600   // pause after an output block appears
     };
 
@@ -29,7 +30,15 @@
         var steps = Array.prototype.slice.call(body.children);
 
         // visibility (not display) keeps the terminal's height stable.
-        steps.forEach(function (el) { el.classList.add("term-hidden"); });
+        // Output lines are hidden individually too, so they can print
+        // one at a time.
+        steps.forEach(function (el) {
+            el.classList.add("term-hidden");
+            Array.prototype.forEach.call(
+                el.querySelectorAll("h1, p, li"),
+                function (line) { line.classList.add("term-hidden"); }
+            );
+        });
 
         var i = 0;
 
@@ -60,10 +69,25 @@
                     }
                 };
                 setTimeout(typeChar, SPEED.charBase);
+            } else if (el.classList.contains("term-out")) {
+                // Output lines print one after another, like real output
+                // streaming in, then the usual pause before the next command.
+                var lines = el.querySelectorAll("h1, p, li");
+                var k = 0;
+                var printLine = function () {
+                    if (k < lines.length) {
+                        lines[k].classList.remove("term-hidden");
+                        k += 1;
+                        setTimeout(printLine, SPEED.lineDelay);
+                    } else {
+                        setTimeout(next, SPEED.afterOutput);
+                    }
+                };
+                printLine();
             } else {
-                // Output blocks and the final prompt appear after a beat,
-                // like a command finishing.
-                setTimeout(next, el.classList.contains("term-out") ? SPEED.afterOutput : SPEED.afterCommand);
+                // The final prompt appears after a beat, like a command
+                // finishing.
+                setTimeout(next, SPEED.afterCommand);
             }
         };
 
